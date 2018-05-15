@@ -1,11 +1,11 @@
 var bluebird = require('bluebird')
 
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://svc_casemanagementapp:PASSWORD@cluster0-shard-00-00-yu2bc.mongodb.net:27017,cluster0-shard-00-01-yu2bc.mongodb.net:27017,cluster0-shard-00-02-yu2bc.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
+mongoose.connect('mongodb://svc_casemanagementapp:password@cluster0-shard-00-00-yu2bc.mongodb.net:27017,cluster0-shard-00-01-yu2bc.mongodb.net:27017,cluster0-shard-00-02-yu2bc.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
 .then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/todoapp`)})
 .catch((err)=> { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/todoapp` + err)})
 
-var createError = require('http-errors');
+var createError = require('http-errors'); 
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -15,7 +15,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var api = require('./routes/api/api.route');
 
-var app = express();
+var app = express(); 
 
 
 app.use(function(req, res, next) {
