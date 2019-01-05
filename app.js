@@ -14,6 +14,8 @@ mongoose.connect(mongodbConnStr)
 .then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : ` + mongodbConnStr)})
 .catch((err)=> { console.log(`Error Connecting to the Mongodb Database at URL : ` + mongodbConnStr ` ` + err)})
 
+console.log('starting up');
+
 
 var createError = require('http-errors'); 
 var express = require('express');
