@@ -6,12 +6,9 @@ dotenv.load();
 var bluebird = require('bluebird');
 
 
-var pw = process.env.mongoPw;
-//console.log("Password: " + pw);
-
+// connect to mongodb
+var pw = process.env.test;
 var mongodbConnStr = process.env.mongoConnStr;
-console.log("Connection String: " + mongodbConnStr);
-
 var mongoose = require('mongoose');
 mongoose.connect(mongodbConnStr)
 .then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : ` + mongodbConnStr)})
