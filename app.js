@@ -14,11 +14,8 @@ console.log("Connection String: " + mongodbConnStr);
 
 var mongoose = require('mongoose');
 mongoose.connect(mongodbConnStr)
-//mongoose.connect('mongodb://svc_casemanagementapp:'+pw+'@cluster0-shard-00-00-yu2bc.mongodb.net:27017,cluster0-shard-00-01-yu2bc.mongodb.net:27017,cluster0-shard-00-02-yu2bc.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
 .then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : ` + mongodbConnStr)})
 .catch((err)=> { console.log(`Error Connecting to the Mongodb Database at URL : ` + mongodbConnStr ` ` + err)})
-
-
 
 
 var createError = require('http-errors'); 
