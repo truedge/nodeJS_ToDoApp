@@ -3,16 +3,20 @@ var dotenv = require('dotenv');
 dotenv.config();
 dotenv.load();
 
-var bluebird = require('bluebird')
+var bluebird = require('bluebird');
 
 
 var pw = process.env.mongoPw;
-console.log("Password: " + pw);
+//console.log("Password: " + pw);
 
-var mongoose = require('mongoose')
-mongoose.connect('mongodb://svc_casemanagementapp:'+pw+'@cluster0-shard-00-00-yu2bc.mongodb.net:27017,cluster0-shard-00-01-yu2bc.mongodb.net:27017,cluster0-shard-00-02-yu2bc.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
-.then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/todoapp`)})
-.catch((err)=> { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/todoapp` + err)})
+var mongodbConnStr = process.env.mongoConnStr;
+console.log("Connection String: " + mongodbConnStr);
+
+var mongoose = require('mongoose');
+mongoose.connect(mongodbConnStr)
+//mongoose.connect('mongodb://svc_casemanagementapp:'+pw+'@cluster0-shard-00-00-yu2bc.mongodb.net:27017,cluster0-shard-00-01-yu2bc.mongodb.net:27017,cluster0-shard-00-02-yu2bc.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
+.then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : ` + mongodbConnStr)})
+.catch((err)=> { console.log(`Error Connecting to the Mongodb Database at URL : ` + mongodbConnStr ` ` + err)})
 
 
 
