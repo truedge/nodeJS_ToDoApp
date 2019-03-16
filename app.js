@@ -5,14 +5,23 @@ dotenv.load();
 
 var bluebird = require('bluebird');
 
+console.log("starting app.js");
+
+if(process.env.mongoConnStr) { 
+  console.log('Environment variable mongoConnStr was found in the .env file'); 
+}
+else { 
+  console.log('Environment variable mongoConnStr is not set. Add the variable to the .env file'); 
+}
 
 // connect to mongodb
-var pw = process.env.test;
+//var pw = process.env.test;
+//console.log("pw: " + pw);
 var mongodbConnStr = process.env.mongoConnStr;
 var mongoose = require('mongoose');
-mongoose.connect(mongodbConnStr)
-.then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : ` + mongodbConnStr)})
-.catch((err)=> { console.log(`Error Connecting to the Mongodb Database at URL : ` + mongodbConnStr ` ` + err)})
+mongoose.connect(mongodbConnStr, { useNewUrlParser: true }, function(err){console.log(`Error Connecting to the Mongodb Database at URL : ` + mongodbConnStr + ` \n\t` + err);});
+//.then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : ` + mongodbConnStr)})
+//.catch((err)=> { console.log(`Error Connecting to the Mongodb Database at URL : ` + mongodbConnStr ` ` + err)})
 
 console.log('starting up');
 
