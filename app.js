@@ -8,10 +8,11 @@ var bluebird = require('bluebird');
 console.log("starting app.js");
 
 if(process.env.mongoConnStr) { 
-  console.log('Environment variable mongoConnStr was found in the .env file'); 
+  console.log('Environment variable mongoConnStr was found in the .env file' + process.env.mongoConnStr); 
 }
 else { 
   console.log('Environment variable mongoConnStr is not set. Add the variable to the .env file'); 
+  process.exit();
 }
 
 // connect to mongodb
